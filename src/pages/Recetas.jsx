@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getRecetas, deleteReceta, inactivateReceta, searchRecetasByNombre } from '../services/RecetaServices';
 import Registrar from './Registrar';
+import './Recetas.css';
 
 const Recetas = () => {
   const [recetas, setRecetas] = useState([]);
@@ -43,32 +44,36 @@ const Recetas = () => {
 
   return (
     <div className="listar-recetas">
-      <h2>Lista de Recetas</h2>
-      {/* Barra de búsqueda */}
-      <div>
-        <label>Buscar por nombre:</label>
+      <h2 className="titulo">Lista de Recetas</h2>
+      <div className="barra-busqueda">
+        <label htmlFor="search">Buscar por nombre:</label>
         <input
+          id="search"
           type="text"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
+          className="input-busqueda"
         />
-        <button onClick={handleSearch}>Buscar</button>
+        <button onClick={handleSearch} className="boton-buscar">Buscar</button>
       </div>
 
-      {/* Tabla de recetas */}
-      <ul>
+      <ul className="lista-recetas">
         {filteredRecetas.map((receta) => (
-          <li key={receta._id}>
-            <strong>{receta.nombre}</strong> - {receta.categoria} - {receta.estado}
-            <br />
-            <button onClick={() => handleEdit(receta._id)}>Editar</button>
-            <button onClick={() => handleInactivate(receta._id)}>Inactivar</button>
-            <button onClick={() => handleDelete(receta._id)}>Eliminar</button>
+          <li key={receta._id} className="receta-card">
+            <div className="receta-content">
+              <h3>{receta.nombre}</h3>
+              <p>Categoria: {receta.categoria}</p>
+              <p>Estado: {receta.estado}</p>
+              <div className="receta-actions">
+                <button onClick={() => handleEdit(receta._id)} className="boton-editar">Editar</button>
+                <button onClick={() => handleInactivate(receta._id)} className="boton-inactivar">Inactivar</button>
+                <button onClick={() => handleDelete(receta._id)} className="boton-eliminar">Eliminar</button>
+              </div>
+            </div>
           </li>
         ))}
       </ul>
 
-      {/* Componente de registro/edición */}
       {editingId && <Registrar recetaId={editingId} onRecetaRegistrada={loadRecetas} />}
     </div>
   );
