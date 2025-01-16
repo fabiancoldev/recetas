@@ -1,0 +1,129 @@
+.receta-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.receta-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.receta-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.receta-card-header h3 {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 1.2rem;
+}
+
+.estado-badge {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.estado-badge.activa {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.estado-badge.inactiva {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.receta-card-content {
+  margin-bottom: 20px;
+}
+
+.receta-card-content p {
+  margin: 8px 0;
+  color: #4a5568;
+}
+
+.categoria {
+  font-size: 0.9rem;
+}
+
+.ingredientes-preview {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.9rem;
+  color: #718096;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.receta-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.receta-actions button {
+  flex: 1;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.edit-btn {
+  background-color: #4299e1;
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #3182ce;
+}
+
+.inactivate-btn {
+  background-color: #ecc94b;
+  color: #744210;
+}
+
+.inactivate-btn:hover {
+  background-color: #d69e2e;
+}
+
+.delete-btn {
+  background-color: #f56565;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #e53e3e;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .receta-card {
+    padding: 15px;
+  }
+
+  .receta-card-header h3 {
+    font-size: 1.1rem;
+  }
+
+  .receta-actions {
+    flex-direction: column;
+  }
+
+  .receta-actions button {
+    width: 100%;
+  }
+}

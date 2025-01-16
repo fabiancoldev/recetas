@@ -1,0 +1,146 @@
+.home-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  padding-bottom: 60px;
+  min-height: calc(100vh - 200px);
+}
+
+.home-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.home-header h1 {
+  color: #2d3748;
+  font-size: 2.5rem;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.home-header p {
+  color: #718096;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.categorias-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.categoria-section h2 {
+  color: #2d3748;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.recetas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.loading,
+.error,
+.no-recetas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  text-align: center;
+  min-height: 400px;
+}
+
+.loading p {
+  color: #4a5568;
+  font-size: 1.2rem;
+  margin-top: 20px;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #e2e8f0;
+  border-top: 4px solid #4299e1;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.error {
+  color: #e53e3e;
+}
+
+.error p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.retry-button {
+  background-color: #4299e1;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.retry-button:hover {
+  background-color: #3182ce;
+}
+
+.no-recetas {
+  color: #718096;
+}
+
+.no-recetas h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: #2d3748;
+}
+
+.no-recetas p {
+  font-size: 1.1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .home-container {
+    padding: 15px;
+  }
+
+  .home-header h1 {
+    font-size: 2rem;
+  }
+
+  .home-header p {
+    font-size: 1rem;
+  }
+
+  .categoria-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .recetas-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .loading,
+  .error,
+  .no-recetas {
+    padding: 20px;
+    min-height: 300px;
+  }
+}
