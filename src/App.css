@@ -1,42 +1,124 @@
-:root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Estilo general del cuerpo */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+/* Encabezado */
+header {
+  background-color: #4CAF50;
+  color: white;
   text-align: center;
+  padding: 20px;
+  font-size: 24px;
+  position: relative;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Menú hamburguesa (icono) */
+.menu-toggle {
+  font-size: 30px;
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  cursor: pointer;
+  display: none; /* Ocultar por defecto en versión web */
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Navegación */
+nav {
+  background-color: #333;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+
+nav ul li {
+  margin: 10px 15px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  display: block;
+  font-size: 18px;
+}
+
+nav ul li a:hover {
+  background-color: #555;
+}
+
+/* Contenido principal */
+main {
+  flex: 1;
+  padding: 20px;
+}
+
+/* Sección de recetas con Grid */
+.recetas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.receta {
+  background-color: white;
+  padding: 15px;
+  text-align: center;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.receta img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+/* Footer */
+footer {
+  background-color: #4CAF50;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 16px;
+}
+
+/* Media Query para dispositivos móviles */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block; /* Mostrar el icono del menú hamburguesa en móviles */
   }
-  to {
-    transform: rotate(360deg);
+
+  nav {
+    display: none; /* Ocultar el menú por defecto en móviles */
+    flex-direction: column;
+    width: 100%;
   }
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  nav.show {
+    display: flex; /* Mostrar el menú cuando se active con JS */
   }
-}
 
-.card {
-  padding: 2em;
-}
+  nav ul {
+    flex-direction: column;
+    text-align: center;
+  }
 
-.read-the-docs {
-  color: #888;
+  nav ul li {
+    margin: 10px 0;
+  }
 }

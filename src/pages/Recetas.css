@@ -110,19 +110,26 @@
   padding-bottom: 2rem;
 }
 
+.lista-recetas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 1rem;
+}
+
 .receta-card {
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  padding: 1.5rem;
-  transition: all 0.3s ease;
+  background: #fff;
   border: 1px solid #e2e8f0;
-  margin-bottom: 1rem;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem;
+  flex: 1 1 300px; /* Ajusta el tamaño de las tarjetas */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
 }
 
 .receta-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
 }
 
 .receta-card h3 {

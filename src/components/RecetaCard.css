@@ -2,7 +2,7 @@
   background-color: white;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  padding: 20px;
+  padding: 10px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -43,7 +43,7 @@
 }
 
 .receta-card-content {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .receta-card-content p {
@@ -57,7 +57,7 @@
 
 .ingredientes-preview {
   display: block;
-  margin-top: 4px;
+  margin-top: 2px;
   font-size: 0.9rem;
   color: #718096;
   overflow: hidden;
@@ -68,7 +68,7 @@
 .receta-actions {
   display: flex;
   gap: 8px;
-  margin-top: 15px;
+  margin-top: 10px;
 }
 
 .receta-actions button {
