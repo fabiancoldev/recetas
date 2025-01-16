@@ -1,12 +1,15 @@
 import { useState, useEffect } from 'react';
 import { getRecetas } from '../services/RecetaServices';
 import RecetaCardSimple from '../components/RecetaCardSimple';
+import { useNavigate } from 'react-router-dom';
+import imagenGenerica from '../assets/img/generica.webp';
 import './Home.css';
 
 const Home = () => {
   const [recetas, setRecetas] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const cargarRecetas = async () => {
@@ -34,6 +37,8 @@ const Home = () => {
     return <div className="error">{error}</div>;
   }
 
+  const categorias = [...new Set(recetas.map(receta => receta.categoria))]; // Obtener categorías únicas
+
   return (
     <div className="home-container">
       <div className="home-header">
@@ -42,7 +47,7 @@ const Home = () => {
       </div>
 
       <div className="categorias-grid">
-        {['Entrada', 'Plato Principal', 'Postre', 'Bebida'].map(categoria => {
+        {categorias.map(categoria => {
           const recetasCategoria = recetas.filter(
             receta => receta.categoria === categoria
           );
@@ -52,7 +57,17 @@ const Home = () => {
               <h2>{categoria}</h2>
               <div className="recetas-grid">
                 {recetasCategoria.map(receta => (
-                  <RecetaCardSimple key={receta._id} receta={receta} />
+                  <div key={receta._id} className="receta-card">
+                    <RecetaCardSimple 
+                      receta={{ ...receta, imagenUrl: receta.imagenUrl || imagenGenerica }}
+                    />
+                    <button 
+                      className="ver-mas-btn" 
+                      onClick={() => navigate(`/receta/${receta._id}`)}
+                    >
+                      Ver más
+                    </button>
+                  </div>
                 ))}
               </div>
             </div>
@@ -62,6 +77,5 @@ const Home = () => {
     </div>
   );
 };
-
 
 export default Home;
